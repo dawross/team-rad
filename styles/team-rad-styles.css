@@ -1,0 +1,23 @@
+.quiz {
+	margin: 0 auto;
+	max-width: 800px;
+	margin-top: 4.5em;
+	text-align: center;
+}
+header {
+	background-color: #ECEEEF;
+	padding: 15px;
+	font-family: Segoe UI;
+	font-weight: 700;
+	font-size: 38px;
+	color: #707070;
+}
+h1 {
+	font-size: 40px;
+	font-weight: 700;
+}
+.btn-block {
+	max-width: 380px;
+	margin: 0 auto;
+	margin-top: 161px;
+}
