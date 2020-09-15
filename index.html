@@ -3,20 +3,82 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-
+    <!-- Latest Bootstrap -->
     <link
-      rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <!-- Page Styles -->
     <link rel="stylesheet" href="styles/team-rad-styles.css" />
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
     <title>Team Rad Prototype for JavaScript Quiz</title>
   </head>
   <body>
-<header>Team Rad</header>
+    <header>Team Rad</header>
 
     <main role="main" class="container">
-      <div class="quiz">
+      <div class="start">
         <h1>Welcome to Team Rad's JavaScript Quiz</h1>
-    <button class="btn btn-lg btn-primary btn-block">Start Quiz</button>
+        <button id="start" class="btn btn-lg btn-primary btn-block">Start Quiz</button>
+      </div>
+
+      <div class="quiz">
+        <form action="">
+          <div class="question">
+            <h2>1. What's the output?</h2>
+            <br />
+            <code>
+              var c = { greeting: 'Hey!' };<br />
+              var d;<br />
+              d = c;<br />
+              c.greeting = 'Hello';<br />
+              console.log(d.greeting);</code
+            >
+          </div>
+          <div class="answers">
+            <div class="custom-control custom-radio">
+              <input type="radio" id="answer1" name="answer" class="custom-control-input" />
+              <label class="custom-control-label" for="answer1">Hello</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="answer2" name="answer" class="custom-control-input" />
+              <label class="custom-control-label" for="answer2">Hey!</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="answer3" name="answer" class="custom-control-input" />
+              <label class="custom-control-label" for="answer3">Undefined</label>
+            </div>
+            <div class="custom-control custom-radio">
+              <input type="radio" id="answer4" name="answer" class="custom-control-input" />
+              <label class="custom-control-label" for="answer4">ReferenceError</label>
+            </div>
+          </div>
+
+          <div class="submit"><button type="submit" class="btn btn-lg btn-primary">Submit</button></div>
+        </form>
+        <div class="row">
+          <div class="col-md-6 offset-6"><nav aria-label="Page navigation">
+            <ul class="pagination">
+              <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+     
+              <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+          </nav></div>
+        </div>
       </div>
     </main>
+    <footer>&copy;2020 - Team Rad</footer>
+
+    <script>
+    $("#start").click(function(){
+        $(".quiz").show();
+        $(".start").hide();
+
+    });
+
+    </script>
   </body>
 </html>

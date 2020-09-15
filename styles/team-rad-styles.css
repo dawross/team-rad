@@ -1,8 +1,9 @@
-.quiz {
-	margin: 0 auto;
+.quiz, .start {
 	max-width: 800px;
-	margin-top: 4.5em;
-	text-align: center;
+	margin: 4.5em auto;
+}
+.answers {
+	margin: 20px 0;
 }
 header {
 	background-color: #ECEEEF;
@@ -20,4 +21,11 @@ h1 {
 	max-width: 380px;
 	margin: 0 auto;
 	margin-top: 161px;
+}
+.quiz {
+	display: none;
+}
+footer {
+	padding: 20px;
+	background-color: #eceeef;
 }
