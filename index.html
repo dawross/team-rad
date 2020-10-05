@@ -15,6 +15,7 @@
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="scripts/knockout-3.5.1.js"></script>
+  
  
     <title>Team Rad Prototype for JavaScript Quiz</title>
   </head>
@@ -26,60 +27,103 @@
         <h1>Welcome to Team Rad's JavaScript Quiz</h1>
         <button id="start" class="btn btn-lg btn-primary btn-block">Start Quiz</button>
       </div>
-     <!-- This is a placeholder for the questions so you can see the style -->
       <div class="quiz">
-        <form action="">
+       
           <div class="question">
-            <h2>1. What's the output?</h2>
+            <h2 data-bind="html: currentQuestion().question"></h2>
             <br />
-            <code>
-              var c = { greeting: 'Hey!' };<br />
-              var d;<br />
-              d = c;<br />
-              c.greeting = 'Hello';<br />
-              console.log(d.greeting);</code>
+         
           </div>
-          <div class="answers">
-            <div class="custom-control custom-radio">
-              <input type="radio" id="answer1" name="answer" class="custom-control-input" />
-              <label class="custom-control-label" for="answer1">Hello</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input type="radio" id="answer2" name="answer" class="custom-control-input" />
-              <label class="custom-control-label" for="answer2">Hey!</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input type="radio" id="answer3" name="answer" class="custom-control-input" />
-              <label class="custom-control-label" for="answer3">Undefined</label>
-            </div>
-            <div class="custom-control custom-radio">
-              <input type="radio" id="answer4" name="answer" class="custom-control-input" />
-              <label class="custom-control-label" for="answer4">ReferenceError</label>
-            </div>
-          </div>
+          <br />
+          <div class="radio-buttons">
+            <div data-bind="foreach:  currentQuestion().answers">
+              <div>
+              <div class="form-group">
+                <input type="radio" name="a" id="a" data-bind="checkedValue: $data.a, checked: $root.selectedAnswer"  /> 
+                 
+                <label for="a" data-bind="text:a "></label>
+                <br />
+              </div>
+              <div class="form-group">
+                <input type="radio" id="b" name="b" data-bind="checkedValue: $data.b, checked: $root.selectedAnswer"  /> 
+                 
+                <label for="b" data-bind="text:b "></label>
+                <br />
+              </div>
+                 <div class="form-group">
+                  <input type="radio" id="c" name="c" data-bind="checkedValue: $data.c, checked: $root.selectedAnswer"  /> 
+                 
+                  <label for="c" data-bind="text:c "></label>
+                  <br />
+                 </div>
+                 
+                 <div class="form-group">
+                  <input type="radio" id="d" name="d" data-bind="checkedValue: $data.d, checked: $root.selectedAnswer"  /> 
+                 
+                  <label for="d" data-bind="text:d "></label>
+                  <br>
+                 </div>                  
+                </div>
 
-          <div class="submit"><button type="submit" class="btn btn-lg btn-primary">Submit</button></div>
-        </form>
+            </div>
+            <button type="submit" id="submit" class="btn btn-lg btn-primary" data-bind="click: storeAnswer, visible: !currentQuestion().questionAnswered">Submit</button>
+            <div id="next" style="display: none;" class="alert alert-success">Answer submitted. Click next to continue</div>
+          </div>
+          
+       
         <div class="row">
           <div class="col-md-6 offset-6">
             <nav aria-label="Page navigation">
               <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#" data-bind="click: previousQuestion">Previous</a></li>
 
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                <li class="page-item"><a id="nextBtn" class="page-link" href="#" data-bind="click: nextQuestion">Next</a></li>
               </ul>
             </nav>
           </div>
         </div>
       </div>
+    </div>
+      <div class="summary">
+        <h1>Your Results</h1>
+        <br />
+        <div class="result alert alert-primary"></div>
+
+        <h2>Questions</h2>
+        <br />
+      <div class="questions alert alert-success"></div>
+       
+      <h2>Your answers</h2>
+      <br />
+       <div class="userAnswers alert-primary"></div>
+       <h2>Correct answers</h2>
+       <br />
+       <div class="correctAnswers alert-success"></div>
+
+       <button type="submit" class="btn btn-lg btn-primary" data-bind="click: restartQuiz">Start over</button>
+       <br />
+
     </main>
     <footer>&copy;2020 - Team Rad</footer>
     <script src="scripts/team-rad-scripts.js"></script>
     <script>
+
+      $(".page-item").hide();
+      $(".summary").hide();
+      
       $("#start").click(function () {
         $(".quiz").show();
+        $(".page-item").show();
         $(".start").hide();
+      
       });
+      $("#submit").click(function(){
+         $("#next").show()
+      });
+      $("#nextBtn").click(function(){
+         $("#next").hide();
+      });
+      
     </script>
   </body>
 </html>

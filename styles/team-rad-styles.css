@@ -1,3 +1,8 @@
+.container {
+	max-width: 800px;
+	margin: 4.5em auto;
+}
+
 header {
 	background-color: #ECEEEF;
 	padding: 15px;
@@ -6,9 +11,12 @@ header {
 	font-size: 38px;
 	color: #707070;
 }
-.quiz, .start {
+/* .quiz, .start {
 	max-width: 800px;
 	margin: 4.5em auto;
+} */
+ol {
+	padding-top: 15px;
 }
 .quiz {
 	display: none;
